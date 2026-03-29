@@ -2,22 +2,11 @@
 
 这个程序更多的作用是让我自己学习如何使用github
 
-使用指南：
-
-1，下载后，将.bat文件修改为.txt。
-
-2，然后双击打开.txt文件，并修改源目录。（源目录为versions文件夹）
-
-3，再讲txt改回bat，双击运行
-
-4，补充。源目录不能设置为其他目录（且需要替换同等的绝对目录），未测试错误会怎么样，可以复制问问ai
-
 ------------------------------分割线-----------------------------------------------------------
 
 Minecraft 图片提取工具
 
 从 Minecraft 版本文件夹中快速提取游戏截图或所有图片，支持四种输出模式。
-
 
 功能特点
 
@@ -42,39 +31,37 @@ Minecraft 图片提取工具
 快速开始
 
 1. 下载脚本
-将 Copy-MCImages.ps1 保存到本地。
+将 mcimage 保存到本地。
 
-2. 允许运行 PowerShell 脚本（仅首次）
-以管理员身份打开 PowerShell，执行：
+2. 使用vs或其他修改为您实际使用的源目录（versions）的绝对路径
 
-powershell
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-3. 运行脚本
-
-右键点击 Copy-MCImages.ps1 → 使用 PowerShell 运行
+3. 运行脚本，使用任意python版本（en，应该？我用的3.9）
 
 4. 根据菜单选择模式
 
 text
+
 1 - 仅截图 + 平铺输出（文件名加版本前缀）
+
 2 - 仅截图 + 按版本文件夹输出（原文件名）
+
 3 - 全量   + 平铺输出
+
 4 - 全量   + 按版本文件夹输出
 
 ========================
 
 默认配置
 
-源目录：D:\MC PCL2\.minecraft\versions
+源目录：D:\MC  PCL2\.minecraft\versions
 
-（如需修改，请编辑脚本开头的 $sourceRoot 变量）
+（如需修改，请编辑 SOURCE_ROOT 变量）
 
 输出目录：桌面 输出文件夹
 
 支持格式：.jpg .jpeg .png .bmp .gif .tiff .tif .webp
 
-（可自行修改 $imageExtensions 数组）
+（可自行修改 IMAGE_EXTENSIONS 数组）
 
 截图判定：文件路径包含 \screenshots\
 
@@ -122,4 +109,4 @@ text
 
 请确保源目录路径正确，否则会提示错误并返回菜单。
 
-若图片数量极多（>10万），扫描时间可能稍长，但 PowerShell 性能优于批处理。
+如果screenshot文件下存在另外的文件夹也会被扫描进去,比如勇者之章会在screenshot文件夹下生成一个debug文件（也许会在下个版本解决?）
